@@ -27,7 +27,7 @@ class MongoDB:
     try:
       data_col = self.connection[database][collection]
       bulk_operations = [UpdateOne({"_id": item["_id"]}, {"$set": item}, upsert=True) for item in data]
-      self._history_col.bulk_write(bulk_operations)
+      data_col.bulk_write(bulk_operations)
       print(f"update data to collection {collection} of database {database} sucesss")
     except Exception as e:
       print(f"update data to collection {collection} of database {database} {e}")
