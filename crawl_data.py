@@ -53,7 +53,7 @@ def get_data(exchange_name, exchange, symbols, timestamp):
     import_trades = standardize_trades(trades)
     mongoDb.update_data_list(database=database_name,
                              collection="trades",
-                             data=[import_trades])
+                             data=import_trades)
     
 
 def run_threads(exchanges :dict, symbols, timestamp):
